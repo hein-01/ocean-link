@@ -28,9 +28,9 @@ const Index = () => {
   const heroBackgroundsMobile = [heroBgMobile1, heroBgMobile2, heroBgMobile3];
   
   const categories = [
-    { value: "product", label: "Product" },
-    { value: "service", label: "Service" },
-    { value: "business", label: "Business" }
+    { value: "product", label: "Find Product" },
+    { value: "service", label: "Find Service" },
+    { value: "business", label: "Find Business" }
   ];
 
   useEffect(() => {
