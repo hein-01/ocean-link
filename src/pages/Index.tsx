@@ -76,7 +76,7 @@ const Index = () => {
         
         {/* Search Bar - positioned at bottom */}
         <div className="absolute bottom-4 left-4 right-4 z-10">
-          <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg border-2 border-primary/20 hover:border-primary/40 transition-colors duration-300 p-2 flex items-center space-x-2">
+          <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg border-4 border-primary/40 hover:border-primary/60 transition-colors duration-300 p-2 flex items-center space-x-2">
             <div className="bg-yellow-400 rounded-md overflow-hidden">
               <Swiper
                 direction="vertical"
