@@ -72,8 +72,10 @@ const Index = () => {
           <div className="absolute inset-0 bg-black/50" />
         </div>
         <div className="container mx-auto text-center relative z-10">
-
-          {/* Search Bar */}
+        </div>
+        
+        {/* Search Bar - positioned at bottom */}
+        <div className="absolute bottom-4 left-4 right-4 z-10">
           <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-lg p-2 flex items-center space-x-2">
             <div className="bg-yellow-400 rounded-md overflow-hidden">
               <Swiper
