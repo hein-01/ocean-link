@@ -49,7 +49,7 @@ const Index = () => {
   console.log('Index component returning JSX...'); // Debug log
   
   return (
-    <div className="min-h-screen bg-background pt-16">
+    <div className="min-h-screen bg-background pt-16 overflow-x-hidden">
       <Navbar />
       
       {/* Hero Banner Section */}
@@ -178,7 +178,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-8 text-foreground">Popular Categories</h2>
           
-          <div className="relative group">
+          <div className="relative group overflow-hidden">
             <Swiper
               spaceBetween={15}
               slidesPerView="auto"
@@ -196,7 +196,7 @@ const Index = () => {
               grabCursor={true}
               touchRatio={1}
               modules={[Autoplay, Navigation]}
-              className="popular-categories-swiper !overflow-visible"
+              className="popular-categories-swiper"
             >
               {[
                 { id: 1, image: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?w=310&h=160&fit=crop", link: "https://example.com/category1" },
@@ -212,7 +212,7 @@ const Index = () => {
                 { id: 11, image: "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=310&h=160&fit=crop", link: "https://example.com/category11" },
                 { id: 12, image: "https://images.unsplash.com/photo-1615729947596-a598e5de0ab3?w=310&h=160&fit=crop", link: "https://example.com/category12" }
               ].map((category) => (
-                <SwiperSlide key={category.id} className="!w-[310px]">
+                <SwiperSlide key={category.id} className="!w-[280px] sm:!w-[310px]">
                   <a 
                     href={category.link}
                     target="_blank"
@@ -222,7 +222,7 @@ const Index = () => {
                     <img
                       src={category.image}
                       alt={`Category ${category.id}`}
-                      className="w-[310px] h-[160px] object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="w-full h-[160px] object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </a>
                 </SwiperSlide>
@@ -273,7 +273,7 @@ const Index = () => {
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-[320px] h-[70px] object-cover"
+                  className="w-full h-[70px] object-cover"
                 />
                 <div className="absolute inset-0 flex flex-col justify-between p-3 text-white">
                   <div>
