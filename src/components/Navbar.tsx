@@ -121,24 +121,6 @@ export const Navbar = () => {
                 $10/month
               </Badge>
             </div>
-
-            {/* Dashboard Sidebar Trigger - Only show on dashboard */}
-            {location.pathname === '/dashboard' && (
-              <Button 
-                onClick={() => {
-                  // Find and click the actual sidebar trigger in the dashboard
-                  const sidebarTrigger = document.querySelector('[data-sidebar="trigger"]');
-                  if (sidebarTrigger) {
-                    (sidebarTrigger as HTMLElement).click();
-                  }
-                }}
-                size="sm"
-                variant="ghost"
-                className="p-2 rounded-lg bg-primary/10 hover:bg-primary/20 transition-colors"
-              >
-                <Menu className="h-4 w-4" />
-              </Button>
-            )}
           </div>
 
           {/* Mobile Menu */}
@@ -171,24 +153,6 @@ export const Navbar = () => {
                 $10
               </Badge>
             </div>
-            
-            {/* Dashboard Sidebar Trigger for Mobile - Only show on dashboard */}
-            {location.pathname === '/dashboard' && (
-              <Button 
-                onClick={() => {
-                  // Find and click the actual sidebar trigger in the dashboard
-                  const sidebarTrigger = document.querySelector('[data-sidebar="trigger"]');
-                  if (sidebarTrigger) {
-                    (sidebarTrigger as HTMLElement).click();
-                  }
-                }}
-                size="sm"
-                variant="ghost"
-                className="p-2 rounded-lg bg-primary/10 hover:bg-primary/20 transition-colors"
-              >
-                <Menu className="h-4 w-4" />
-              </Button>
-            )}
           </div>
         </div>
       </div>
