@@ -172,7 +172,7 @@ const PopularBusinesses = () => {
               loop={false}
               grabCursor={true}
               centeredSlides={false}
-              className="popular-businesses-swiper-mobile pb-12 pl-4"
+              className="popular-businesses-swiper-mobile pb-12 px-4"
             >
             {businesses.map((business) => (
               <SwiperSlide key={business.id} className="!w-[260px] sm:!w-[280px]">
