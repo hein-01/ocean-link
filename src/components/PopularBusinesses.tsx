@@ -173,15 +173,16 @@ const PopularBusinesses = () => {
               grabCursor={true}
               centeredSlides={false}
               className="popular-businesses-swiper-mobile pb-12 px-4"
+              style={{ '--swiper-pagination-color': 'var(--primary)' } as React.CSSProperties}
             >
             {businesses.map((business) => (
-              <SwiperSlide key={business.id} className="!w-[260px] sm:!w-[280px]">
+              <SwiperSlide key={business.id} className="!w-[280px] !mr-5">
                 <PopularBusinessCard business={business} />
               </SwiperSlide>
             ))}
               
               {/* Fixed sixth card - Discover more shops (Mobile) */}
-              <SwiperSlide key="discover-more-mobile" className="!w-[260px] sm:!w-[280px]">
+              <SwiperSlide key="discover-more-mobile" className="!w-[280px] !mr-5">
                 <Card className="group w-[280px] h-[475px] flex flex-col shadow-lg hover:shadow-2xl transition-all duration-300 mx-auto bg-gradient-to-br from-slate-800 to-slate-900">
                   <div className="relative overflow-hidden rounded-t-lg h-[200px] bg-gradient-to-br from-slate-700 to-slate-800">
                     <img
