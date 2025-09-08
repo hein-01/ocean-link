@@ -316,6 +316,11 @@ const Index = () => {
       {/* Footer Section */}
       <Footer />
       
+      {/* Mobile-only Business Directory Section */}
+      <section className="md:hidden bg-gray-100 h-[75px] flex items-center justify-start px-4">
+        <span className="text-gray-700 font-medium">Business Directory Group</span>
+      </section>
+      
       {/* Mobile Navigation Bar */}
       <MobileNavBar />
     </div>
