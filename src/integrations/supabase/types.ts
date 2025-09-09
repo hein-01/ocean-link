@@ -255,6 +255,7 @@ export type Database = {
       plans: {
         Row: {
           created_at: string
+          currency_symbol: string | null
           duration: string
           features: string
           id: string
@@ -264,6 +265,7 @@ export type Database = {
         }
         Insert: {
           created_at?: string
+          currency_symbol?: string | null
           duration: string
           features: string
           id?: string
@@ -273,6 +275,7 @@ export type Database = {
         }
         Update: {
           created_at?: string
+          currency_symbol?: string | null
           duration?: string
           features?: string
           id?: string

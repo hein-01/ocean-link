@@ -15,6 +15,7 @@ import { useToast } from "@/hooks/use-toast";
 const formSchema = z.object({
   name: z.string().min(1, "Name is required"),
   pricing: z.string().min(1, "Pricing is required"),
+  currency_symbol: z.string().min(1, "Currency symbol is required"),
   duration: z.enum(["/Month", "/Year"], {
     required_error: "Please select a duration",
   }),
@@ -27,6 +28,7 @@ interface Plan {
   id: string;
   name: string;
   pricing: string;
+  currency_symbol: string;
   duration: string;
   features: string;
 }
@@ -47,6 +49,7 @@ export function PlanFormModal({ isOpen, onClose, onSubmit, plan }: PlanFormModal
     defaultValues: {
       name: "",
       pricing: "",
+      currency_symbol: "$",
       duration: "/Month",
       features: "",
     },
@@ -57,6 +60,7 @@ export function PlanFormModal({ isOpen, onClose, onSubmit, plan }: PlanFormModal
       form.reset({
         name: plan.name,
         pricing: plan.pricing,
+        currency_symbol: plan.currency_symbol,
         duration: plan.duration as "/Month" | "/Year",
         features: plan.features,
       });
@@ -64,6 +68,7 @@ export function PlanFormModal({ isOpen, onClose, onSubmit, plan }: PlanFormModal
       form.reset({
         name: "",
         pricing: "",
+        currency_symbol: "$",
         duration: "/Month",
         features: "",
       });
@@ -76,6 +81,7 @@ export function PlanFormModal({ isOpen, onClose, onSubmit, plan }: PlanFormModal
       const planData = {
         name: data.name,
         pricing: data.pricing,
+        currency_symbol: data.currency_symbol,
         duration: data.duration,
         features: data.features,
       };
@@ -161,7 +167,21 @@ export function PlanFormModal({ isOpen, onClose, onSubmit, plan }: PlanFormModal
                 <FormItem>
                   <FormLabel>Pricing</FormLabel>
                   <FormControl>
-                    <Input placeholder="e.g., $29.99" {...field} />
+                    <Input placeholder="e.g., 29.99" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            
+            <FormField
+              control={form.control}
+              name="currency_symbol"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Currency Symbol</FormLabel>
+                  <FormControl>
+                    <Input placeholder="e.g., $, €, £" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

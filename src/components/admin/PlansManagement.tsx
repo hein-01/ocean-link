@@ -12,6 +12,7 @@ interface Plan {
   id: string;
   name: string;
   pricing: string;
+  currency_symbol: string;
   duration: string;
   features: string;
   created_at: string;
@@ -132,6 +133,7 @@ export function PlansManagement() {
                   <TableRow>
                     <TableHead>Name</TableHead>
                     <TableHead>Pricing</TableHead>
+                    <TableHead>Currency</TableHead>
                     <TableHead>Duration</TableHead>
                     <TableHead className="text-right">Actions</TableHead>
                   </TableRow>
@@ -141,6 +143,7 @@ export function PlansManagement() {
                     <TableRow key={plan.id}>
                       <TableCell className="font-medium">{plan.name}</TableCell>
                       <TableCell>{plan.pricing}</TableCell>
+                      <TableCell>{plan.currency_symbol}</TableCell>
                       <TableCell>{plan.duration}</TableCell>
                       <TableCell className="text-right">
                         <div className="flex items-center justify-end gap-2">
