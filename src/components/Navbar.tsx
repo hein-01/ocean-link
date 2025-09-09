@@ -26,6 +26,11 @@ export const Navbar = () => {
     "Free Business Listing"
   ];
 
+  const priceTexts = [
+    "$10/month",
+    "$5/year"
+  ];
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-border">
       <div className="container mx-auto px-4">
@@ -117,9 +122,28 @@ export const Navbar = () => {
                   ))}
                 </Swiper>
               </Link>
-              <Badge className="absolute -top-2 -right-1 bg-yellow-400 text-black text-xs px-2 py-0">
-                $10/month
-              </Badge>
+              <div className="absolute -top-2 -right-1 bg-yellow-400 text-black text-xs px-2 py-0 rounded-md overflow-hidden">
+                <Swiper
+                  direction="vertical"
+                  spaceBetween={0}
+                  slidesPerView={1}
+                  autoplay={{
+                    delay: 2500,
+                    disableOnInteraction: false,
+                  }}
+                  loop={true}
+                  className="h-4 w-full"
+                  modules={[Autoplay]}
+                >
+                  {priceTexts.map((price, index) => (
+                    <SwiperSlide key={index} className="h-4 flex items-center">
+                      <span className="text-xs font-medium text-center w-full">
+                        {price}
+                      </span>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </div>
             </div>
           </div>
 
@@ -149,9 +173,28 @@ export const Navbar = () => {
                   ))}
                 </Swiper>
               </Link>
-              <Badge className="absolute -top-1 -right-1 bg-yellow-400 text-black text-xs px-1 py-0">
-                $10/month
-              </Badge>
+              <div className="absolute -top-1 -right-1 bg-yellow-400 text-black text-xs px-1 py-0 rounded-md overflow-hidden">
+                <Swiper
+                  direction="vertical"
+                  spaceBetween={0}
+                  slidesPerView={1}
+                  autoplay={{
+                    delay: 2500,
+                    disableOnInteraction: false,
+                  }}
+                  loop={true}
+                  className="h-3 w-full"
+                  modules={[Autoplay]}
+                >
+                  {priceTexts.map((price, index) => (
+                    <SwiperSlide key={index} className="h-3 flex items-center">
+                      <span className="text-xs font-medium text-center w-full">
+                        {price}
+                      </span>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </div>
             </div>
           </div>
         </div>
