@@ -112,6 +112,25 @@ export default function BusinessForm({ onSuccess, editingBusiness }: BusinessFor
     return getProductsForCategories(formData.categories);
   }, [formData.categories, getProductsForCategories]);
 
+  // Sort locations to prioritize Yangon and Mandalay at the top
+  const sortedLocations = useMemo(() => {
+    return [...locations].sort((a, b) => {
+      const aName = a.province_district;
+      const bName = b.province_district;
+      
+      // Yangon comes first
+      if (aName === "Yangon" && bName !== "Yangon") return -1;
+      if (bName === "Yangon" && aName !== "Yangon") return 1;
+      
+      // Mandalay comes second (after Yangon)
+      if (aName === "Mandalay" && bName !== "Mandalay" && bName !== "Yangon") return -1;
+      if (bName === "Mandalay" && aName !== "Mandalay" && aName !== "Yangon") return 1;
+      
+      // For all others, sort alphabetically
+      return aName.localeCompare(bName);
+    });
+  }, [locations]);
+
   // Calculate total price based on selected options
   const calculateTotalPrice = () => {
     const listingPriceNum = parseFloat(listingPrice.replace(/[^0-9.]/g, '')) || 0;
@@ -808,7 +827,7 @@ export default function BusinessForm({ onSuccess, editingBusiness }: BusinessFor
                     <SelectValue placeholder="Select province/district/state" />
                   </SelectTrigger>
                   <SelectContent className="border-2 border-border/60 bg-card shadow-lg">
-                    {locations.map((location) => (
+                    {sortedLocations.map((location) => (
                       <SelectItem key={location.id} value={location.province_district} className="hover:bg-accent focus:bg-accent">
                         {location.province_district}
                       </SelectItem>
