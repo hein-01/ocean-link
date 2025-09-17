@@ -118,13 +118,21 @@ export default function BusinessForm({ onSuccess, editingBusiness }: BusinessFor
       const aName = a.province_district;
       const bName = b.province_district;
       
+      // Check if Yangon (with or without Myanmar text)
+      const aIsYangon = aName.toLowerCase().includes("yangon");
+      const bIsYangon = bName.toLowerCase().includes("yangon");
+      
+      // Check if Mandalay (with or without Myanmar text)
+      const aIsMandalay = aName.toLowerCase().includes("mandalay");
+      const bIsMandalay = bName.toLowerCase().includes("mandalay");
+      
       // Yangon comes first
-      if (aName === "Yangon" && bName !== "Yangon") return -1;
-      if (bName === "Yangon" && aName !== "Yangon") return 1;
+      if (aIsYangon && !bIsYangon) return -1;
+      if (bIsYangon && !aIsYangon) return 1;
       
       // Mandalay comes second (after Yangon)
-      if (aName === "Mandalay" && bName !== "Mandalay" && bName !== "Yangon") return -1;
-      if (bName === "Mandalay" && aName !== "Mandalay" && aName !== "Yangon") return 1;
+      if (aIsMandalay && !bIsMandalay && !bIsYangon) return -1;
+      if (bIsMandalay && !aIsMandalay && !aIsYangon) return 1;
       
       // For all others, sort alphabetically
       return aName.localeCompare(bName);
