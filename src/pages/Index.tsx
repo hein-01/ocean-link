@@ -154,26 +154,26 @@ const Index = () => {
             {/* Content */}
             <div className="flex-1 text-center md:text-left">
               <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4">
-                Find a shop or Start your online shop!
+                Find a business or Start your online business!
               </h2>
               <div className="space-y-2 text-sm md:text-base text-muted-foreground">
                 <div className="flex items-center justify-center md:justify-start gap-2">
-                  <div className="w-4 h-4 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="w-4 h-4 bg-green-500 rounded-full hidden md:flex items-center justify-center flex-shrink-0">
                     <span className="text-white text-xs">✓</span>
                   </div>
-                  <span>Discover local businesses easily</span>
+                  <span style={{ color: '#F9F849' }}>Discover local businesses easily</span>
                 </div>
                 <div className="flex items-center justify-center md:justify-start gap-2">
-                  <div className="w-4 h-4 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="w-4 h-4 bg-green-500 rounded-full hidden md:flex items-center justify-center flex-shrink-0">
                     <span className="text-white text-xs">✓</span>
                   </div>
-                  <span>List your business and reach customers</span>
+                  <span style={{ color: '#F9F849' }}>List your business and reach customers</span>
                 </div>
                 <div className="flex items-center justify-center md:justify-start gap-2">
-                  <div className="w-4 h-4 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="w-4 h-4 bg-green-500 rounded-full hidden md:flex items-center justify-center flex-shrink-0">
                     <span className="text-white text-xs">✓</span>
                   </div>
-                  <span>Get a POS and website for as little as $12/month</span>
+                  <span style={{ color: '#F9F849' }}>Get a POS and website for as little as $12/month</span>
                 </div>
               </div>
             </div>
