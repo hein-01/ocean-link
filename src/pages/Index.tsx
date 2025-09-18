@@ -161,19 +161,19 @@ const Index = () => {
                   <div className="w-4 h-4 bg-green-500 rounded-full hidden md:flex items-center justify-center flex-shrink-0">
                     <span className="text-white text-xs">✓</span>
                   </div>
-                  <span style={{ color: '#F9F849' }}>Discover local businesses easily</span>
+                  <span>Discover local businesses easily</span>
                 </div>
                 <div className="flex items-center justify-center md:justify-start gap-2">
                   <div className="w-4 h-4 bg-green-500 rounded-full hidden md:flex items-center justify-center flex-shrink-0">
                     <span className="text-white text-xs">✓</span>
                   </div>
-                  <span style={{ color: '#F9F849' }}>List your business and reach customers</span>
+                  <span>List your business and reach customers</span>
                 </div>
                 <div className="flex items-center justify-center md:justify-start gap-2">
                   <div className="w-4 h-4 bg-green-500 rounded-full hidden md:flex items-center justify-center flex-shrink-0">
                     <span className="text-white text-xs">✓</span>
                   </div>
-                  <span style={{ color: '#F9F849' }}>Get a POS and website for as little as $12/month</span>
+                  <span>Get a POS and website for as little as $12/month</span>
                 </div>
               </div>
             </div>
