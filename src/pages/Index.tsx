@@ -158,26 +158,32 @@ const Index = () => {
               </h2>
               <div className="space-y-2 text-sm md:text-base text-muted-foreground">
                 <div className="flex items-center justify-center md:justify-start gap-2">
-                  <div className="w-4 h-4 bg-green-500 rounded-full flex items-center justify-center">
+                  <div className="w-4 h-4 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
                     <span className="text-white text-xs">✓</span>
                   </div>
-                  <span>Discover local businesses and compare prices easily</span>
+                  <span>Discover local businesses easily</span>
                 </div>
                 <div className="flex items-center justify-center md:justify-start gap-2">
-                  <div className="w-4 h-4 bg-green-500 rounded-full flex items-center justify-center">
+                  <div className="w-4 h-4 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
                     <span className="text-white text-xs">✓</span>
                   </div>
-                  <span>List your business and reach customers both online and offline</span>
+                  <span>List your business and reach customers</span>
+                </div>
+                <div className="flex items-center justify-center md:justify-start gap-2">
+                  <div className="w-4 h-4 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                    <span className="text-white text-xs">✓</span>
+                  </div>
+                  <span>Get a POS and website for as little as $12/month</span>
                 </div>
               </div>
             </div>
             
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-3">
-              <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium">
+              <Button className="bg-black hover:bg-gray-800 text-white px-6 py-2 rounded-lg font-medium">
                 Find Shops
               </Button>
-              <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-6 py-2 rounded-lg font-medium" asChild>
+              <Button variant="outline" className="border-[#8E6CF4] text-[#8E6CF4] hover:bg-[#8E6CF4]/10 px-6 py-2 rounded-lg font-medium" asChild>
                 <Link to="/list-business">List your business</Link>
               </Button>
             </div>
