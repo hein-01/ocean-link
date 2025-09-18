@@ -141,51 +141,69 @@ const Index = () => {
 
 
       {/* Find a shop/Start your online shop Section */}
-      <section className="py-8 px-4">
+      <section className="py-12 px-4">
         <div className="container mx-auto">
-          <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-950/20 dark:to-purple-950/20 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
-            {/* Illustration */}
-            <div className="flex-shrink-0">
-              <div className="w-24 h-24 md:w-32 md:h-32 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full flex items-center justify-center">
-                <div className="text-white text-2xl md:text-3xl font-bold">🛍️</div>
-              </div>
-            </div>
+          <div className="relative overflow-hidden bg-gradient-to-br from-indigo-50 via-white to-cyan-50 dark:from-indigo-950/30 dark:via-slate-900/50 dark:to-cyan-950/30 rounded-3xl shadow-2xl border border-white/20 backdrop-blur-sm">
+            {/* Decorative background elements */}
+            <div className="absolute -top-12 -right-12 w-32 h-32 bg-gradient-to-br from-purple-400/20 to-pink-400/20 rounded-full blur-2xl"></div>
+            <div className="absolute -bottom-8 -left-8 w-28 h-28 bg-gradient-to-br from-blue-400/20 to-indigo-400/20 rounded-full blur-2xl"></div>
             
-            {/* Content */}
-            <div className="flex-1 text-center md:text-left">
-              <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4">
-                Find a business or Start your online business!
-              </h2>
-              <div className="space-y-2 text-sm md:text-base text-muted-foreground">
-                <div className="flex items-center justify-center md:justify-start gap-2">
-                  <div className="w-4 h-4 bg-green-500 rounded-full hidden md:flex items-center justify-center flex-shrink-0">
-                    <span className="text-white text-xs">✓</span>
+            <div className="relative z-10 p-8 md:p-12 flex flex-col lg:flex-row items-center justify-between gap-8">
+              {/* Illustration */}
+              <div className="flex-shrink-0 animate-scale-in">
+                <div className="relative">
+                  <div className="w-32 h-32 md:w-40 md:h-40 bg-gradient-to-br from-violet-500 via-purple-500 to-fuchsia-500 rounded-full flex items-center justify-center shadow-2xl shadow-purple-500/25 hover:shadow-purple-500/40 transition-all duration-500 hover:scale-105">
+                    <div className="w-20 h-20 md:w-24 md:h-24 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                      <ShoppingBag className="w-10 h-10 md:w-12 md:h-12 text-white" strokeWidth={1.5} />
+                    </div>
                   </div>
-                  <span>Discover local businesses easily</span>
-                </div>
-                <div className="flex items-center justify-center md:justify-start gap-2">
-                  <div className="w-4 h-4 bg-green-500 rounded-full hidden md:flex items-center justify-center flex-shrink-0">
-                    <span className="text-white text-xs">✓</span>
-                  </div>
-                  <span>List your business and reach customers</span>
-                </div>
-                <div className="flex items-center justify-center md:justify-start gap-2">
-                  <div className="w-4 h-4 bg-green-500 rounded-full hidden md:flex items-center justify-center flex-shrink-0">
-                    <span className="text-white text-xs">✓</span>
-                  </div>
-                  <span>Get a POS and website for as little as $12/month</span>
+                  {/* Floating elements */}
+                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-yellow-400 rounded-full animate-bounce"></div>
+                  <div className="absolute -bottom-1 -left-2 w-4 h-4 bg-emerald-400 rounded-full animate-pulse"></div>
                 </div>
               </div>
-            </div>
-            
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3">
-              <Button className="bg-black hover:bg-gray-800 text-white px-6 py-2 rounded-lg font-medium">
-                Find Shops
-              </Button>
-              <Button variant="outline" className="border-[#8E6CF4] text-[#8E6CF4] hover:bg-[#8E6CF4]/10 px-6 py-2 rounded-lg font-medium" asChild>
-                <Link to="/list-business">List your business</Link>
-              </Button>
+              
+              {/* Content */}
+              <div className="flex-1 text-center lg:text-left max-w-2xl">
+                <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-slate-900 via-purple-900 to-slate-900 dark:from-white dark:via-purple-200 dark:to-white bg-clip-text text-transparent mb-6 leading-tight">
+                  Find a business or Start your online business!
+                </h2>
+                <div className="space-y-4 text-base md:text-lg">
+                  <div className="flex items-center justify-center lg:justify-start gap-3 group">
+                    <div className="w-6 h-6 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full hidden md:flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                      <span className="text-white text-sm font-bold">✓</span>
+                    </div>
+                    <span className="text-slate-700 dark:text-slate-300 font-medium group-hover:text-slate-900 dark:group-hover:text-white transition-colors duration-300">Discover local businesses easily</span>
+                  </div>
+                  <div className="flex items-center justify-center lg:justify-start gap-3 group">
+                    <div className="w-6 h-6 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full hidden md:flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                      <span className="text-white text-sm font-bold">✓</span>
+                    </div>
+                    <span className="text-slate-700 dark:text-slate-300 font-medium group-hover:text-slate-900 dark:group-hover:text-white transition-colors duration-300">List your business and reach customers</span>
+                  </div>
+                  <div className="flex items-center justify-center lg:justify-start gap-3 group">
+                    <div className="w-6 h-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full hidden md:flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                      <span className="text-white text-sm font-bold">✓</span>
+                    </div>
+                    <span className="text-slate-700 dark:text-slate-300 font-medium group-hover:text-slate-900 dark:group-hover:text-white transition-colors duration-300">Get a POS and website for as little as $12/month</span>
+                  </div>
+                </div>
+              </div>
+              
+              {/* CTA Buttons */}
+              <div className="flex flex-col gap-4 min-w-fit">
+                <Button className="bg-gradient-to-r from-slate-900 to-slate-700 hover:from-slate-800 hover:to-slate-600 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 hover:-translate-y-1">
+                  Find Shops
+                </Button>
+                <Button variant="outline" className="border-2 border-purple-500 text-purple-600 hover:bg-purple-500 hover:text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 hover:-translate-y-1 bg-white/50 backdrop-blur-sm" asChild>
+                  <Link to="/list-business">
+                    <span className="flex items-center gap-2">
+                      List your business
+                      <Compass className="w-5 h-5" />
+                    </span>
+                  </Link>
+                </Button>
+              </div>
             </div>
           </div>
         </div>
