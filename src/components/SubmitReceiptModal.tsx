@@ -44,12 +44,12 @@ export function SubmitReceiptModal({
   isSubmitting,
   onSubmit,
 }: SubmitReceiptModalProps) {
-  const [selectedMethodIndex, setSelectedMethodIndex] = useState(0);
+  const [selectedMethodIndex, setSelectedMethodIndex] = useState(-1);
   const [receiptFile, setReceiptFile] = useState<File | null>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
 
   const selectedMethod = useMemo(
-    () => paymentMethods[selectedMethodIndex] ?? null,
+    () => selectedMethodIndex >= 0 ? paymentMethods[selectedMethodIndex] ?? null : null,
     [paymentMethods, selectedMethodIndex]
   );
 
@@ -57,7 +57,7 @@ export function SubmitReceiptModal({
     if (!open) {
       setReceiptFile(null);
       setPreviewUrl(null);
-      setSelectedMethodIndex(0);
+      setSelectedMethodIndex(-1);
     }
   }, [open]);
 
@@ -149,7 +149,7 @@ export function SubmitReceiptModal({
                     Payment Method
                   </p>
                   <h3 className="text-xl font-semibold text-foreground">
-                    {selectedMethod?.method_type || "Payment Details"}
+                    {selectedMethod?.method_type || "Select a payment method below"}
                   </h3>
                 </div>
                 <Badge variant="secondary" className="text-base font-medium px-3 py-1">
@@ -193,16 +193,41 @@ export function SubmitReceiptModal({
                 </div>
               )}
 
-              {selectedMethod?.account_number && (
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="inline-flex items-center gap-2"
-                  onClick={handleCopyAccountNumber}
-                >
-                  <Copy className="h-4 w-4" /> Copy account number
-                </Button>
-              )}
+              {selectedMethod?.account_number ? (
+                <div className="space-y-3">
+                  <Card className="bg-muted/30 border-primary/20">
+                    <CardContent className="p-4 space-y-2">
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm font-medium text-muted-foreground">Account Name</span>
+                        <span className="text-sm font-semibold text-foreground">{selectedMethod.account_name || "Not provided"}</span>
+                      </div>
+                      <div className="flex items-center justify-between gap-4">
+                        <span className="text-sm font-medium text-muted-foreground">Account Number</span>
+                        <div className="flex items-center gap-2">
+                          <span className="text-base font-mono font-bold text-foreground">{selectedMethod.account_number}</span>
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            className="h-8 px-2"
+                            onClick={handleCopyAccountNumber}
+                          >
+                            <Copy className="h-4 w-4" />
+                          </Button>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                  <p className="text-xs text-muted-foreground italic">
+                    ℹ️ Use the copy button to ensure accuracy when making your transfer.
+                  </p>
+                </div>
+              ) : selectedMethodIndex >= 0 ? (
+                <Card className="border-dashed border-muted-foreground/50 bg-muted/20">
+                  <CardContent className="p-4 text-sm text-muted-foreground">
+                    <p>Account details not available for this payment method.</p>
+                  </CardContent>
+                </Card>
+              ) : null}
             </section>
 
             <section className="space-y-3">
@@ -276,7 +301,7 @@ export function SubmitReceiptModal({
           <Button
             className="w-full sm:w-auto"
             onClick={handleSubmit}
-            disabled={!receiptFile || isSubmitting}
+            disabled={!receiptFile || selectedMethodIndex < 0 || isSubmitting}
           >
             {isSubmitting ? "Submitting..." : "Submit My Booking"}
           </Button>
