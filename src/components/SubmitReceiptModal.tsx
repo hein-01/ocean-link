@@ -193,41 +193,6 @@ export function SubmitReceiptModal({
                 </div>
               )}
 
-              {selectedMethod?.account_number ? (
-                <div className="space-y-3">
-                  <Card className="bg-muted/30 border-primary/20">
-                    <CardContent className="p-4 space-y-2">
-                      <div className="flex items-center justify-between">
-                        <span className="text-sm font-medium text-muted-foreground">Account Name</span>
-                        <span className="text-sm font-semibold text-foreground">{selectedMethod.account_name || "Not provided"}</span>
-                      </div>
-                      <div className="flex items-center justify-between gap-4">
-                        <span className="text-sm font-medium text-muted-foreground">Account Number</span>
-                        <div className="flex items-center gap-2">
-                          <span className="text-base font-mono font-bold text-foreground">{selectedMethod.account_number}</span>
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            className="h-8 px-2"
-                            onClick={handleCopyAccountNumber}
-                          >
-                            <Copy className="h-4 w-4" />
-                          </Button>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                  <p className="text-xs text-muted-foreground italic">
-                    ℹ️ Use the copy button to ensure accuracy when making your transfer.
-                  </p>
-                </div>
-              ) : selectedMethodIndex >= 0 ? (
-                <Card className="border-dashed border-muted-foreground/50 bg-muted/20">
-                  <CardContent className="p-4 text-sm text-muted-foreground">
-                    <p>Account details not available for this payment method.</p>
-                  </CardContent>
-                </Card>
-              ) : null}
             </section>
 
             <section className="space-y-3">
