@@ -210,7 +210,7 @@ export function SubmitReceiptModal({
                               className="inline-flex items-center gap-1 text-xs text-primary hover:text-primary/80 transition-colors"
                             >
                               <Copy className="h-3 w-3" />
-                              <span>Click to copy the number</span>
+                              <span>Click to copy this number</span>
                             </button>
                           )}
                         </div>
