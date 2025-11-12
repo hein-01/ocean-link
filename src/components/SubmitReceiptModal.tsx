@@ -181,12 +181,40 @@ export function SubmitReceiptModal({
                           <span className="font-semibold text-foreground">{method.method_type}</span>
                           {isSelected ? <CheckCircle2 className="h-5 w-5 text-primary" /> : null}
                         </div>
-                        <div className="text-sm text-muted-foreground">
-                          <p className="font-medium">{method.account_name || "Account name unavailable"}</p>
+                      <div className="text-sm text-muted-foreground">
+                        <p className="font-medium">{method.account_name || "Account name unavailable"}</p>
+                        <div className="flex items-center gap-2 mt-1">
                           <p className="font-mono text-base text-foreground">
                             {method.account_number || "—"}
                           </p>
+                          {method.account_number && (
+                            <button
+                              type="button"
+                              onClick={async (e) => {
+                                e.stopPropagation();
+                                try {
+                                  await navigator.clipboard.writeText(method.account_number);
+                                  toast({
+                                    title: "Copied!",
+                                    description: "Account number copied to clipboard.",
+                                  });
+                                } catch (error) {
+                                  console.error("Failed to copy", error);
+                                  toast({
+                                    title: "Copy failed",
+                                    description: "Please copy manually.",
+                                    variant: "destructive",
+                                  });
+                                }
+                              }}
+                              className="inline-flex items-center gap-1 text-xs text-primary hover:text-primary/80 transition-colors"
+                            >
+                              <Copy className="h-3 w-3" />
+                              <span>Click to copy the number</span>
+                            </button>
+                          )}
                         </div>
+                      </div>
                       </button>
                     );
                   })}
